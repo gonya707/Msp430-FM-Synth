@@ -61,18 +61,18 @@ void loop(){
                 digitalWrite( RED_LED, LOW);
               }
               
-              if (on == off){ //quitar comentarios cuando este listo
-                  //device.powerDown();
+              if (on == off){ // From now the AD quiets when a note off is pressed. For modular synthesyzers It would be a good idea to keep the sound ringing
+                  device.powerDown();
                   
                   //sync
-                  //i = 0; 
-                  //ascending = true;
+                  i = 0; 
+                  ascending = true;
               }
               else{
-                  // 1 ~ 1024
-                  z = analogRead(P1_3) + 1;
-                  // 1 ~ 1024
-                  y = 4*analogRead(P1_4) + 1;
+                  // 1 ~ 256
+                  z =  (analogRead(P1_3)/4 + 1);
+                  // 0 ~ 1023
+                  y = analogRead(P1_4);
                   
                   // 0 ~ z ~ 0
                   if (ascending){
@@ -88,12 +88,12 @@ void loop(){
                       }
                   }
                   
-                  // numero entre -4096 y +4096
-                  t = ((i * 8192) / z) - 4096;
+                  // floats used, remove in next releases
+                  t = (float)(((float)i / (float)z) * 100000) * ((float)y / (float)1024);
                   
                 
-                  // ogiginal AD9850_Osc(freq + y*sin(t), 0);
-                  device.osc(freq + (t * (y-1) *4096) / 4096 / 4096);
+                  
+                  device.osc(freq + (long)t);
                   
                   
                   

@@ -27,11 +27,9 @@ void AD9850::doReset(){
 	osc(0);
 }
 
-/* Sets the DDS sine and square oscillator to the detailed "frequency" and "phase" variables.
- * "frequency" will be turned into a 32 bit word, so the frequency resolution of 0.0291 Hz
- * with a 125 MHz reference clock. "phase" will be a 5 bit word instead so the resolution is
- * 11.5 degrees, or pi/32 radians.
- */
+/* Sets the DDS sine and square oscillator to the "frequency" code
+
+*/
 void AD9850::osc(long code){
   
 	long y = abs(code);

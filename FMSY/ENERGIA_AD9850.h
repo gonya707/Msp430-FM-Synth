@@ -1,10 +1,7 @@
-/*   Library for Stellaris and MSP430 boards with Energia.
+/*   Modified Library for Stellaris and MSP430 boards with Energia.
  *
- *    This library contains several functions for using with a DDS generator
- *    AD9850 module. All the functions are intended to work with this device
- *    in SERIAL mode, so you need to connect the parallel pins D0 and D1 to VCC
- *    and D2 GND, as written in the AD9850 datasheet. For further information
- *    check the Analog Devices website.
+ *    This is a modified library of my AD9850 library for several boards and devices. 
+ *    Don't use it in other projects unless you know what are doing
  *
  *    Coded by Gonzalo Recio
  *
