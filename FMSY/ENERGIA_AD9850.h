@@ -1,7 +1,7 @@
 /*   Modified Library for Stellaris and MSP430 boards with Energia.
  *
  *    This is a modified library of my AD9850 library for several boards and devices. 
- *    Don't use it in other projects unless you know what are doing
+ *    Don't use it in other projects unless you know what are you doing
  *
  *    Coded by Gonzalo Recio
  *
@@ -26,7 +26,6 @@
 			void init();
 			void doReset();
 			void osc(long code);
-
 			void powerDown();
 		 private:
 			int W_CLK;

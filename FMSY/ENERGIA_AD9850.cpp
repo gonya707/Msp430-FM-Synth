@@ -23,7 +23,6 @@ void AD9850::doReset(){
 	sendPulse(W_CLK);
         sendPulse(RESET);
         sendPulse(FQ_UD);
-	
 	osc(0);
 }
 
@@ -31,13 +30,12 @@ void AD9850::doReset(){
 
 */
 void AD9850::osc(long code){
-  
 	long y = abs(code);
 
 	int i;
 	//Frequency 32-bit word
 	for (i = 0; i < 32; i++){
-	        digitalWrite(DATA, (y>>i) & 0x01);
+	        digitalWrite(DATA, (y >> i) & 0x01);
 		sendPulse(W_CLK);
 	}
 	
